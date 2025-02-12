@@ -5,9 +5,9 @@
     You need to solve this problem in O(n) time complexity and O(1) space complexity.
     Implement the function `find_missing_number(nums: Vec<i32>) -> i32`.
     The function should return the missing number.
-    
+
     You are required to find an optimal solution with O(n) time complexity and O(1) space complexity.
-    
+
     Hint: Use the sum of the first `n` numbers and subtract the sum of the array elements to find the missing number.
 */
 
@@ -15,7 +15,11 @@ use std::fmt::{self, Display, Formatter};
 
 pub fn find_missing_number(nums: Vec<i32>) -> i32 {
     // TODO: Implement the logic to find the missing number
-    0 // Placeholder return value
+    let n = nums.len();
+    let right_sum = ((n + 1) * (n + 2) / 2) as i32;
+    let real_sum: i32 = nums.iter().sum();
+    // println!("real_sums: {:?}", real_sum);
+    right_sum - real_sum
 }
 
 #[cfg(test)]

@@ -1,11 +1,11 @@
 /*
     Find Duplicates in Array
-    Given an array, find all the duplicate elements and return them. 
+    Given an array, find all the duplicate elements and return them.
     You need to solve the problem with O(1) space complexity (i.e., without using extra arrays or hash tables).
 
     Implement the function `find_duplicates(nums: Vec<i32>) -> Vec<i32>`.
     The function should return a vector containing all the duplicate elements in the array.
-    
+
     Hint: You can modify the input array in place to track duplicates.
 */
 
@@ -13,7 +13,17 @@ use std::fmt::{self, Display, Formatter};
 
 pub fn find_duplicates(nums: Vec<i32>) -> Vec<i32> {
     // TODO: Implement the logic to find all duplicates in the array
-    Vec::new() // Placeholder return value
+    let mut ans = Vec::new();
+    let mut vit: Vec<i32> = Vec::new();
+    for num in nums.into_iter() {
+        if vit.contains(&num) && !ans.contains(&num) {
+            ans.push(num);
+        } else {
+            vit.push(num);
+        }
+    }
+    ans.sort();
+    ans
 }
 
 #[cfg(test)]
