@@ -16,17 +16,34 @@ use std::fmt::{self, Display, Formatter};
 
 pub fn merge_intervals(intervals: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
     // TODO: Implement the logic to merge overlapping intervals
+
+    // 克隆输入的区间列表，避免直接修改原始数据
     let mut tmp = intervals.clone();
+
+    // 对区间按照起始点进行排序
+    // 使用 `sort_by` 方法，传入一个闭包来比较两个区间的起始点
     tmp.sort_by(|a, b| a[0].cmp(&b[0]));
+
+    // 初始化索引，用于遍历区间列表
     let mut index = 0;
+
+    // 遍历区间列表，合并重叠的区间
     while index < tmp.len() - 1 {
+        // 检查当前区间和下一个区间是否重叠
+        // 如果下一个区间的起始点 <= 当前区间的结束点，说明有重叠
         if tmp[index + 1][0] <= tmp[index][1] {
+            // 合并两个区间：更新当前区间的结束点为两个区间结束点的最大值
             tmp[index][1] = max(tmp[index][1], tmp[index + 1][1]);
+
+            // 移除下一个区间，因为已经合并到当前区间
             tmp.remove(index + 1);
         } else {
+            // 如果没有重叠，移动到下一个区间
             index += 1;
         }
     }
+
+    // 返回合并后的区间列表
     tmp
 }
 
