@@ -82,23 +82,23 @@
     },
     {
       "name": "algorithm17.rs",
-      "result": false,
-      "score": 0
+      "result": true,
+      "score": 1
     },
     {
       "name": "algorithm18.rs",
-      "result": false,
-      "score": 0
+      "result": true,
+      "score": 1
     },
     {
       "name": "algorithm19.rs",
-      "result": false,
-      "score": 0
+      "result": true,
+      "score": 1
     },
     {
       "name": "algorithm20.rs",
-      "result": false,
-      "score": 0
+      "result": true,
+      "score": 1
     },
     {
       "name": "solution1",
@@ -153,9 +153,9 @@
   ],
   "statistics": {
     "total_exercises": 30,
-    "total_successes": 16,
-    "total_failures": 14,
-    "total_score": 16,
+    "total_successes": 20,
+    "total_failures": 10,
+    "total_score": 20,
     "total_time": 15
   }
 }
